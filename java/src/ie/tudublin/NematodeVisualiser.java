@@ -13,11 +13,12 @@ public class NematodeVisualiser extends PApplet
 	{
 		if (keyCode == LEFT)
 		{
-			index = (index == 0) ? nematodes.size() - 1 : index - 1;
+			index = (index == 0) ? nematodes.size() - 1 : index - 1; //condition ? value_if_true : value_if_false;
 		}
 		if (keyCode == RIGHT)
 		{
-			index = (index + 1) % nematodes.size();
+			index = (index + 1) % nematodes.size(); //gets the modulo of index and nematode size
+			
 		}
 		
 	}

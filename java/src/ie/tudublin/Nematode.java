@@ -120,25 +120,27 @@ public class Nematode
 
     public void render(float cx, float cy)
     {
-
+        //this calculates half the length of our nematode 
         float half = w * length * 0.5f; 
         v.pushMatrix();
         v.translate(cx, cy);
         v.translate(0, - half);
-        v.noFill();
-        float hw = w / 2;
-
+        v.noFill(); //sets fill colour to none 
+        float hw = w / 2; //half width of our nematode
+        //this is just the code to display its name 
         v.textSize(36);
         v.textAlign(PApplet.CENTER, PApplet.CENTER);
         v.text(name, 0, -w * 2);
         
+
+
         for(int i = 0 ; i < length ; i ++)
         {
             float y = i * w;
             v.ellipse(0, y, w, w);       
             if (limbs > 0)
             {
-                v.line(-hw, y, - hw - hw, y);
+                v.line(-hw, y, - hw - hw, y); //this draws limbs out of our nematode using the hw - half width of nematode 
                 v.line(hw, y, hw * 2, y);
             }
             if (eyes)
@@ -185,12 +187,12 @@ public class Nematode
 
     private void drawEye(float angle)
     {
-        float x1 = PApplet.sin(PApplet.radians(angle)) * (r);
+        float x1 = PApplet.sin(PApplet.radians(angle)) * (r); //calculates where the eye should be placed along the x axis judging by the radius of our nematode 
         float y1 = - PApplet.cos(PApplet.radians(angle)) * (r);
         
-        float x2 = PApplet.sin(PApplet.radians(angle)) * (r + r);
+        float x2 = PApplet.sin(PApplet.radians(angle)) * (r + r); // caklcualtes eye two of our nematode but using double the radius to create eyelids twice the size of our eyeball
         float y2 = - PApplet.cos(PApplet.radians(angle)) * (r + r);
-        float ex = PApplet.sin(PApplet.radians(angle)) * (r + r + eyeRadius);
+        float ex = PApplet.sin(PApplet.radians(angle)) * (r + r + eyeRadius); //this is to calculate the center point of our eye 
         float ey = - PApplet.cos(PApplet.radians(angle)) * (r + r + eyeRadius);
         v.circle(ex, ey, eyeRadius * 2.0f);
         v.line(x1, y1, x2, y2);
