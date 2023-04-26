@@ -1,6 +1,7 @@
 package ie.tudublin;
 
 import processing.core.PApplet;
+import processing.data.Table;
 import processing.data.TableRow;
 
 public class Nematode
@@ -199,6 +200,10 @@ public class Nematode
         v.circle(ex, ey, eyeRadius * 2.0f);
         v.line(x1, y1, x2, y2);
 
+    }
+    @Override
+    public String toString(){
+        return "Nematodes: Name= " + name + "length= " + length + "limbs= " +limbs + " gender: " +gender + "eyes:" + eyes;
     }
 }
 

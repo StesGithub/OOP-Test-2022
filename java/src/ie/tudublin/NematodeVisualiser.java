@@ -57,6 +57,7 @@ public class NematodeVisualiser extends PApplet
 		noCursor();
 		
 		loadNematodes();
+		printNematodes();
 }
 	
 
@@ -76,6 +77,12 @@ public class NematodeVisualiser extends PApplet
 
 	ArrayList<Nematode> nematodes = new ArrayList<>();
 	
+	public void printNematodes(){
+		for(Nematode n:nematodes){
+			println(n);
+		}
+	}
+
 	public void draw()
 	{	
 		background(0);
