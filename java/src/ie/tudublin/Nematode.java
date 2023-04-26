@@ -110,6 +110,7 @@ public class Nematode
     public Nematode(NematodeVisualiser v, TableRow row)
     {
         this(v, row.getInt("length"), row.getString("name"), row.getInt("limbs"), row.getInt("eyes") == 1, row.getString("gender").charAt(0));
+
     }
 
     
@@ -137,11 +138,12 @@ public class Nematode
         for(int i = 0 ; i < length ; i ++)
         {
             float y = i * w;
-            v.ellipse(0, y, w, w);       
+            v.ellipse(y, 0, w, w);       //elippse takes x and y cooridantes then size values for height and width
+
             if (limbs > 0)
             {
-                v.line(-hw, y, - hw - hw, y); //this draws limbs out of our nematode using the hw - half width of nematode 
-                v.line(hw, y, hw * 2, y);
+                v.line(y, -hw, y, - hw - hw); //this draws limbs out of our nematode using the hw - half width of nematode 
+                v.line(y,hw, y, hw * 2);
             }
             if (eyes)
             {
